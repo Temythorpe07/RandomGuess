@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Guess</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            background-image: url('./Guess-a-number.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #inp1 {
+            background-color: rgb(124, 214, 86);
+            color:  solid black;
+            font-weight: 800;
+            font-size: 20px;
+            border-radius: 25px;
+            width: 60px;
+            text-align: center;
+            outline: none;
+            border: none;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: rgb(124, 214, 86);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5c995c;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #inp1 {
+                font-size: 16px;
+                width: 50px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <h2>RANDOM NUMBER GUESS</h2>
+            <p id="display2"></p>
+            <p id="display"></p>
+            <input type="value" id="inp1" placeholder="?">
+            <button onclick="generate()">Check</button>
+        </div>
+    </center>
+
+    <script>
+        let inp1 = document.getElementById("inp1");
+        let display = document.getElementById("display");
+        let display2 = document.getElementById("display2");
+
+        function generate(){
+            let random_number = Math.floor(Math.random() * 10 + 1);
+            display2.innerHTML = random_number;
+            console.log(random_number);
+            if(inp1.value == random_number){
+                display.innerHTML = `${inp1.value} Is CORRECT!`;
+            } else {
+                display.innerHTML = `${inp1.value} Is WRONG, TRY AGAIN!!`;
+            }
+        }
+    </script>
+</body>
+</html>
